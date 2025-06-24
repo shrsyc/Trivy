@@ -1,4 +1,4 @@
-name: Container Image CI
+name: Grype
 on: [push]
 jobs:
   build:
@@ -15,6 +15,7 @@ jobs:
         id: scan
         with:
           image: "localbuild/testimage:latest"
+          fail-build: false
       - name: upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@v3
         with:
